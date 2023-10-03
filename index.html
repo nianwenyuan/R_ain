@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./cloud.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        6666666666666
+        <div class="cloud"></div>
+    </div>
+    <audio class="music" src="./雨声.mp3" loop autoplay ></audio>
+    <script>
+        function rain(){
+            let cloud=document.querySelector('.cloud');
+            e=document.createElement('div');
+            left=Math.floor(Math.random()*310);
+            width=Math.random()*5;
+            height=Math.random()*50;
+            duration=Math.random()*0.5;
+
+            e.classList.add('drop');
+            cloud.appendChild(e);
+            e.style.left=left+'px';
+            e.style.width=0.5+width+'px';
+            e.style.height=0.5+height+'px';
+            e.style.animationDuration=1+duration+'s';
+
+            setTimeout(function(){
+                cloud.removeChild(e)
+            },2000)
+        }
+
+        setInterval(()=>{
+            rain()
+        },20);
+
+        var music=document.querySelector('.music');
+        var playing=1;
+        document.addEventListener('click',function(){
+            if(playing)
+            {music.play();
+            playing=0;}else{
+                music.pause();
+                playing=1;
+            }
+        });
+    </script>
+</body>
+</html>
